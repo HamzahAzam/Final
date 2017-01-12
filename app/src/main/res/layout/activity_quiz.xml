@@ -10,18 +10,26 @@
         android:layout_width="111dp"
         android:layout_height="wrap_content"
         android:id="@+id/quiz_user"
+<<<<<<< HEAD
         android:layout_weight="0.15"
         android:textSize="10sp"
         android:gravity="center_vertical|center_horizontal" />
+=======
+        android:layout_weight="0.15" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     <TextView
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:padding="24dp"
         android:textStyle="normal|bold"
         android:textSize="20sp"
         android:gravity="center_horizontal" />
+=======
+        android:padding="24dp" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -44,6 +52,7 @@
     </LinearLayout>
 
     <Button
+<<<<<<< HEAD
         android:text="SKIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,5 +63,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CHEAT" />
+=======
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cheat_button" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
 </LinearLayout>

@@ -14,7 +14,11 @@
         android:layout_centerHorizontal = "true" />
 
     <EditText
+<<<<<<< HEAD
         android:layout_width="match_parent"
+=======
+        android:layout_width="wrap_content"
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
@@ -27,8 +31,31 @@
         android:textColorHint="#ffff299f"
         android:hint="Password" />
 
+<<<<<<< HEAD
     <EditText
         android:layout_width = "match_parent"
+=======
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:id="@+id/btn_login_login"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quit"
+        android:id="@+id/btn_login_quit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width = "wrap_content"
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
         android:layout_height = "wrap_content"
         android:id = "@+id/et_login_Username"
         android:hint = "Enter Name"
@@ -48,6 +75,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="login"
@@ -85,5 +113,13 @@
         android:layout_below="@+id/highScoresBtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+=======
+        android:text="REGISTER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_login_register"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
 </RelativeLayout>

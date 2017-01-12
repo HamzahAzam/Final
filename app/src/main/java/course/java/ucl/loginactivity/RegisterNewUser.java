@@ -2,7 +2,10 @@ package course.java.ucl.loginactivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.support.v4.app.FragmentManager;
+=======
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +52,7 @@ import android.support.v4.app.Fragment;
                         String password = String.valueOf(et_Password.getText());
                         String email = String.valueOf(et_Email.getText());
 
+<<<<<<< HEAD
                         Toast.makeText(getActivity(), "Added user!",Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Inserting users...");
                         db.addUser(new User(username, email, password));
@@ -58,17 +62,31 @@ import android.support.v4.app.Fragment;
                         b.putString("USER",username);
                         fragment.setArguments(b);
                         manager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+=======
+                        Toast.makeText(getActivity(), "Redirecting...",Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Inserting users...");
+                        db.addUser(new User(username, email, password));
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                     }
                 });
 
             b2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+<<<<<<< HEAD
                     getFragmentManager().popBackStackImmediate();
+=======
+                    getActivity().finish();
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                 }
             });
 
             return rootView;
         }
 
+<<<<<<< HEAD
     }
+=======
+    }
+
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5

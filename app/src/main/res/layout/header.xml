@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<<<<<<< HEAD
         <TextView
             android:text="TextView"
             android:layout_width="match_parent"
@@ -35,6 +36,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_register_user" />
+=======
+        <Button
+            android:text="Click here to Register"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_register_user"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listHeader"
+            android:textSize="18sp" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     </LinearLayout>
 </LinearLayout>

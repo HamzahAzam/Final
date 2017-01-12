@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/listHeader"
+<<<<<<< HEAD
             android:textSize="30sp"
             android:textAlignment="center"
             android:textStyle="normal|bold"
@@ -23,6 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/backBtn" />
+=======
+            android:textSize="18sp" />
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     </LinearLayout>
 </LinearLayout>

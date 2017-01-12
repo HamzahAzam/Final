@@ -32,16 +32,22 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import static android.R.attr.data;
 
 
 public class QuizActivity extends Fragment
 {
+=======
+
+public class QuizActivity extends Fragment {
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     Button mTrueButton;
     Button mFalseButton;
+<<<<<<< HEAD
     Button mCheatButton;
     Button mskipButton;
     TextView m_userName;
@@ -50,11 +56,24 @@ public class QuizActivity extends Fragment
     static boolean mIsCheater=false;
     static int cheaterPosition = -1;
     boolean mAnswerIsTrue = true;
+=======
+    Button mNextButton;
+    Button mCheatButton;
+    TextView m_userName;
+    String mQuestion;
+    Boolean manswer;
+    int position=0;
+
+    static boolean mIsCheater=false;
+    static int cheaterPosition = -1;
+    boolean malreadytAttempted;
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     TextView mQuestionTextView;
 
     int mCurrentIndex = 0;
 
+<<<<<<< HEAD
     public static final String EXTRA_ANSWER_IS_TRUE = "tfquiz.ANSWER_IS_TRUE";
     public static final String EXTRA_ANSWER_SHOWN = "tfquiz.ANSWER_SHOWN";
 
@@ -64,14 +83,20 @@ public class QuizActivity extends Fragment
         getActivity().setResult(Activity.RESULT_OK, data);
     }
 
+=======
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 
     private void updateQuestion() {
         String question = questionsList.getAnswerKey().get(position).getQuestion();
         mQuestionTextView.setText(question);
     }
 
+<<<<<<< HEAD
      public void checkAnswer(boolean userPressedTrue)
      {
+=======
+    private void checkAnswer(boolean userPressedTrue) {
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
         boolean answerIsTrue = questionsList.getAnswerKey().get(position).isTrueQuestion();
 
         int messageResId = 0;
@@ -113,16 +138,20 @@ public class QuizActivity extends Fragment
         View rootView = inflater.inflate(R.layout.activity_quiz,
                 container, false);
 
+<<<<<<< HEAD
         if (savedInstanceState == null) {
             // first startup, so the answer must not
             // be shown yet
             setAnswerShownResult(false);
 
+=======
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
        /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             ActionBar actionBar = getActivity().getActionBar();
             actionBar.setSubtitle("TFFTT");
         }*/
 
+<<<<<<< HEAD
             if (cheaterPosition != position) mIsCheater = false;
             mQuestionTextView = (TextView) rootView.findViewById(R.id.question_text_view);
 
@@ -205,12 +234,81 @@ public class QuizActivity extends Fragment
         return rootView;
     }
 
+=======
+        if(cheaterPosition != position) mIsCheater = false;
+        mQuestionTextView = (TextView) rootView.findViewById(R.id.question_text_view);
+
+        String userName = getArguments().getString("USER");
+        position =  getArguments().getInt("position");
+
+        m_userName = (TextView) rootView.findViewById(R.id.quiz_user);
+        m_userName.setText("Quiz for " + userName);
+
+        mTrueButton = (Button) rootView.findViewById(R.id.true_button);
+        mTrueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkAnswer(true);
+            }
+        });
+
+        mFalseButton = (Button) rootView.findViewById(R.id.false_button);
+        mFalseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkAnswer(false);
+            }
+        });
+
+        mCheatButton = (Button) rootView.findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            FragmentManager manager = getFragmentManager();
+            Fragment fragment = manager.findFragmentById(R.id.fragment_container);
+
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "cheat button clicked");
+                cheaterPosition = position;
+                mIsCheater = true;
+                Fragment fragment = new CheatActivity();
+                boolean answerIsTrue = questionsList.getAnswerKey().get(questionsList.currentIndex()).isTrueQuestion();
+                Bundle b = new Bundle();
+
+                b.putBoolean(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
+                fragment.setArguments(b);
+                manager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                Log.d(TAG, "intent created");
+
+                Log.d(TAG, "cheat button clicked");
+
+            }
+        });
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
+        updateQuestion();
+        return rootView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+    }
+
+    @Override
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
     public void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");

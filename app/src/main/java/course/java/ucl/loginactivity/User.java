@@ -1,6 +1,12 @@
 package course.java.ucl.loginactivity;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Created by waynetsui on 16/12/16.
+ */
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
 public class User {
     private String userName;
     private String email;

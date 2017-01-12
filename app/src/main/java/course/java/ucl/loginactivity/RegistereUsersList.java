@@ -73,6 +73,7 @@ public class RegistereUsersList extends ListFragment{
         final DBHandler db = new DBHandler(getActivity());
         ArrayList<User> regUSers = db.getAllUsers();
         ArrayList<Attempt> attempts = db.getAllAttempts();
+<<<<<<< HEAD
 
                if (regUSers ==null)
         {
@@ -85,6 +86,8 @@ public class RegistereUsersList extends ListFragment{
         usr.setEmail("a@a");
         regUSers.add(usr);
 
+=======
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
         for(User user   :regUSers) {
             int highestScore = 0;
             int totalAttempts = 0;
@@ -129,7 +132,11 @@ public class RegistereUsersList extends ListFragment{
                         .inflate(R.layout.header, null);
                 TextView titleTextView =
                         (TextView) innerView.findViewById(R.id.listHeader);
+<<<<<<< HEAD
                 titleTextView.setText("Select a user to login");
+=======
+                titleTextView.setText("Select one to login and start quiz");
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                 final Button btn_RegisterNewUser = (Button)innerView.findViewById(R.id.btn_register_user);
                 btn_RegisterNewUser.setOnClickListener( new View.OnClickListener() {
                     @Override
@@ -152,10 +159,19 @@ public class RegistereUsersList extends ListFragment{
 
             // configure the view for this question
             User user = getItem(position);
+<<<<<<< HEAD
             final TextView titleTextView = (TextView) convertView.findViewById(R.id.users_list_title);
             titleTextView.setText(user.getUserName());
             UserHistory history = userandHistory.get(user.getUserName());
             TextView textViewScore  = (TextView) convertView.findViewById(R.id.current_score);
+=======
+            final TextView titleTextView =
+                    (TextView) convertView.findViewById(R.id.users_list_title);
+            titleTextView.setText(user.getUserName());
+            UserHistory history = userandHistory.get(user.getUserName());
+            TextView textViewScore  =
+                    (TextView) convertView.findViewById(R.id.current_score);
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
             textViewScore.setText(Integer.toString(history.highestScore));
             titleTextView.setTag(position);
             convertView.setOnTouchListener(new View.OnTouchListener() {

@@ -36,8 +36,12 @@ import java.util.List;
  * Created by azam1 on 30/12/2016.
  */
 
+<<<<<<< HEAD
 public class LoggedInUsersList extends ListFragment
 {
+=======
+public class LoggedInUsersList extends ListFragment{
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
     private static ArrayList<TrueFalse> qKeyList;
 
     String m_Name;
@@ -46,6 +50,7 @@ public class LoggedInUsersList extends ListFragment
 
 
     @Override
+<<<<<<< HEAD
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -57,6 +62,15 @@ public class LoggedInUsersList extends ListFragment
             quizStarted.put(m_Name, (questionsList)fragment);
         }
 
+=======
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        m_Name  = getArguments().getString("USER");
+        if(!quizStarted.containsKey(m_Name)) {
+            Fragment fragment = new questionsList();
+            quizStarted.put(m_Name, (questionsList)fragment);
+        }
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
         ArrayList<String> loggedInList =new ArrayList<String>(quizStarted.keySet());
         ArrayList<String> list = new ArrayList<String>();
         list.add("");
@@ -65,6 +79,7 @@ public class LoggedInUsersList extends ListFragment
         setListAdapter(adapter);
     }
 
+<<<<<<< HEAD
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -78,16 +93,31 @@ public class LoggedInUsersList extends ListFragment
 
         public UserDetailsAdapter(ArrayList<String> loggedIn)
         {
+=======
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ((UserDetailsAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
+    private class UserDetailsAdapter extends ArrayAdapter<String> {
+
+        public UserDetailsAdapter(ArrayList<String> loggedIn) {
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
             super(getActivity(), android.R.layout.simple_list_item_1, loggedIn);
         }
 
         @Override
+<<<<<<< HEAD
         public View getView(int position, View convertView, ViewGroup parent)
         {
+=======
+        public View getView(int position, View convertView, ViewGroup parent) {
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
             // if we weren't given a view, inflate one
             final FragmentManager manager = getFragmentManager();
             Fragment fragment = manager.findFragmentById(R.id.fragment_container);
 
+<<<<<<< HEAD
             if (null == convertView && position!=0)
             {
                 convertView = getActivity().getLayoutInflater()
@@ -115,6 +145,24 @@ public class LoggedInUsersList extends ListFragment
                 return convertView;
             }
 
+=======
+
+            if (null == convertView && position!=0) {
+                convertView = getActivity().getLayoutInflater()
+                        .inflate(R.layout.list_item_loggedin_users, null);
+            }
+            else if (position==0) {
+
+                convertView = getActivity().getLayoutInflater()
+                        .inflate(R.layout.header_loggedin, null);
+                TextView titleTextView =
+                        (TextView) convertView.findViewById(R.id.listHeader);
+                titleTextView.setText("Logged In Users click to go to questions");
+                return convertView;
+            }
+
+
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
             ImageView thumbnailImageView = (ImageView) convertView.findViewById(R.id.users_list_thumbnail);
             Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.person);
             thumbnailImageView.setImageBitmap(icon);
@@ -126,8 +174,12 @@ public class LoggedInUsersList extends ListFragment
             titleTextView.setText(user);
 
             fragment = null;
+<<<<<<< HEAD
             if(quizStarted.containsKey(titleTextView.getText().toString()))
             {
+=======
+            if(quizStarted.containsKey(titleTextView.getText().toString())){
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                 fragment = quizStarted.get(titleTextView.getText().toString());
             }
             if(fragment==null){
@@ -139,6 +191,7 @@ public class LoggedInUsersList extends ListFragment
                     (TextView) convertView.findViewById(R.id.current_score);
             textViewScore.setText(Integer.toString(quiz.m_Score));
             titleTextView.setTag(position);
+<<<<<<< HEAD
             convertView.setOnTouchListener(new View.OnTouchListener()
             {
                 @Override
@@ -156,6 +209,20 @@ public class LoggedInUsersList extends ListFragment
                 @Override
                 public void onClick(View v)
                 {
+=======
+            convertView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    view.setBackgroundColor(Color.BLUE);
+                    return false;
+                }
+            });
+
+
+            convertView.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                     Fragment fragment = manager.findFragmentById(R.id.fragment_container);
                     fragment = null;
 
@@ -165,6 +232,7 @@ public class LoggedInUsersList extends ListFragment
                     int position = (int) titleTextView.getTag();
                     b.putInt("position",position);
                     b.putString("USER",m_Name);
+<<<<<<< HEAD
 
                     if(quizStarted.containsKey(titleTextView.getText().toString()))
                     {
@@ -173,14 +241,24 @@ public class LoggedInUsersList extends ListFragment
 
                     if(fragment==null)
                     {
+=======
+                    if(quizStarted.containsKey(titleTextView.getText().toString())){
+                        fragment = quizStarted.get(titleTextView.getText().toString());
+                    }
+                    if(fragment==null){
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
                         fragment = new questionsList();
                         quizStarted.put(titleTextView.getText().toString(), (questionsList)fragment);
                     }
                     fragment.setArguments(b);
                     manager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
                 }
+<<<<<<< HEAD
             }
             );
+=======
+            });
+>>>>>>> 3af91408c10a12c412e43b3fa4eebf36d4974cb5
             return convertView;
         }
     }
